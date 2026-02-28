@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#111111" />
+  <g transform="translate(420, 265)">
+    <!-- The Circular Mark -->
+    <circle cx="50" cy="50" r="50" fill="#FFFFFF" />
+    <circle cx="50" cy="50" r="16" fill="#111111" />
+    
+    <!-- The VERSE Text -->
+    <text 
+      x="130" 
+      y="75" 
+      font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" 
+      font-size="80" 
+      font-weight="600" 
+      letter-spacing="-0.025em" 
+      fill="#FFFFFF"
+    >
+      VERSE
+    </text>
+  </g>
+</svg>
