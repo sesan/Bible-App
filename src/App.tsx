@@ -32,17 +32,17 @@ export default function App() {
             </div>
             <div className="hidden md:flex items-center gap-2 bg-gray-50 rounded-full px-2 py-1">
               <a href="#problem" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Problem</a>
-              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Solution</a>
+              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">Something's Coming</a>
               <a href="#community" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">Community</a>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#waitlist" className="hidden md:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Log in</a>
+            <a href="#waitlist" className="hidden md:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Log In</a>
             <a
               href="#waitlist"
               className="bg-black text-white rounded-full px-6 py-2.5 text-sm font-medium transition-transform hover:scale-105"
             >
-              Join the Waitlist
+              Get Early Access
             </a>
           </div>
         </div>
@@ -58,14 +58,14 @@ export default function App() {
                 <span className="text-xs font-semibold tracking-wide uppercase text-gray-600">Now in early access</span>
               </div>
               
-              <h1 className="text-[56px] md:text-[80px] font-medium leading-[1.05] tracking-tight text-balance mb-8">
-                Your Bible.<br />
-                Your Thoughts.<br />
-                Finally in One Place.
+              <h1 className="text-[40px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-balance mb-8">
+                You've been using<br />
+                the wrong Bible app<br />
+                your whole life.
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed">
-                The Bible app built for people who actually write notes — and want to find them again.
+                You just didn't know there was a better way. Until now.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -73,7 +73,7 @@ export default function App() {
                   href="#waitlist"
                   className="w-full sm:w-auto bg-black text-white rounded-full px-8 py-4 text-base font-medium flex items-center justify-center gap-2 transition-transform hover:scale-105"
                 >
-                  Join the Waitlist <ArrowRight size={18} />
+                  I Want to Know More <ArrowRight size={18} />
                 </a>
               </div>
             </div>
@@ -115,18 +115,18 @@ export default function App() {
                   Sound familiar?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed max-w-sm">
-                  If you've ever opened a Bible app and felt something was missing — you were right.
+                  If you've ever opened a Bible app and felt something was missing, you were right.
                 </p>
               </div>
             </div>
             
             <div className="lg:col-span-7 flex flex-col gap-6">
               {[
-                { icon: Search, title: "Your notes are buried forever", desc: "You wrote something powerful in a reading plan 6 months ago. Now it's gone — buried under 10 completed plans with no way to search for it." },
-                { icon: TextSelect, title: "You can only highlight the whole verse", desc: "One word in that verse changed everything. But the app forces you to mark the entire verse. The moment gets diluted." },
-                { icon: BookOpen, title: "Your journal lives in a different app", desc: "Every time you want to reflect, you leave the Bible app and open Notes. Your study is fragmented across 3 different tools." },
-                { icon: Compass, title: "No one asked what you actually believe yet", desc: "You're just starting to explore faith. You have real questions like 'Who is Jesus?' But the app gives you the same plan catalog as everyone else." },
-                { icon: PenTool, title: "It doesn't feel like your Bible", desc: "On a physical Bible, you write in the margins, underline words, make it yours. Digital Bibles feel like reading someone else's copy." }
+                { icon: Search, title: "Your notes are buried forever", desc: "You wrote something powerful 6 months ago. It's gone, buried inside a completed plan with no way to ever search for it." },
+                { icon: PenTool, title: "You can only highlight the whole verse", desc: "One word changed everything for you. But the app marks the entire verse. That moment gets lost every time." },
+                { icon: BookOpen, title: "Your journal lives in a different app", desc: "Every time you want to reflect, you leave and open Notes. Your study is split across three tools." },
+                { icon: Compass, title: "No one asked what you actually believe yet", desc: "You have real questions like \"Who is Jesus?\" But the app gives you the same plan catalog as everyone else. You are not everyone else." },
+                { icon: PenTool, title: "It doesn't feel like your Bible", desc: "On a physical Bible you write in the margins, underline words, make it yours. Digital Bibles feel like someone else's copy." }
               ].map((item, i) => (
                 <div key={i} className="bg-gray-50 rounded-[24px] p-8 md:p-10 flex gap-6 items-start border border-gray-100 transition-colors hover:bg-gray-100">
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
@@ -142,51 +142,43 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section 3: Solution (Dark Mode) */}
-        <section id="solution" className="py-32 bg-[#111] text-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-20">
-              <div className="lg:col-span-6">
-                <h2 className="text-[48px] md:text-[64px] font-medium leading-[1.05] tracking-tight mb-6">
-                  Introducing Verse.
-                </h2>
-                <p className="text-xl text-gray-400">
-                  Your Bible's second brain.
-                </p>
-              </div>
-              <div className="lg:col-span-6 flex justify-start lg:justify-end">
-                <a href="#waitlist" className="bg-white text-black rounded-full px-8 py-4 text-sm font-medium transition-transform hover:scale-105">
-                  See Our Offerings
-                </a>
-              </div>
+        {/* Section 3: Something Is Coming (Dark Mode) */}
+        <section id="solution" className="py-32 bg-[#111] text-white text-center">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-8">Something Is Coming</div>
+            <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
+              We've seen every problem.<br className="hidden md:block" />
+              We've been sitting with it for a long time.
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-400 mb-12">
+              And we think we've finally built the answer.
+            </p>
+            
+            <div className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+              <p>
+                We're not ready to show you yet. But if you've nodded at anything on this page, what we're building was made for you. Every frustration you just read has a solution we've been quietly building. We'll reveal it first to the people on this list.
+              </p>
             </div>
 
-            <div className="flex overflow-x-auto hide-scrollbar gap-6 pb-12 snap-x">
-              {[
-                { icon: Brain, title: "Everything you've ever written, instantly findable", desc: "One searchable feed of every highlight, note, voice memo, and reflection — across every plan, every book, every translation. Forever." },
-                { icon: Mic, title: "Journal while you read — without leaving", desc: "Speak your thoughts out loud. Use HEAR or SOAP right inside the app. AI captures, transcribes, and organises everything automatically." },
-                { icon: Map, title: "A reading path built around your real questions", desc: "Tell us where you are spiritually. We build a personalised reading path from your actual questions — not a generic plan everyone else is doing." }
-              ].map((item, i) => (
-                <div key={i} className="min-w-[320px] md:min-w-[400px] bg-[#1A1A1A] rounded-[32px] p-10 snap-start border border-white/5 flex flex-col">
-                  <div className="w-12 h-12 bg-[#222] rounded-full flex items-center justify-center mb-8 border border-white/10">
-                    <item.icon size={20} className="text-white" />
-                  </div>
-                  <h3 className="text-2xl font-medium mb-4">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed mt-auto">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+            <a href="#waitlist" className="inline-flex bg-white text-black rounded-full px-10 py-5 text-lg font-medium transition-transform hover:scale-105 mb-6">
+              Put Me on the List
+            </a>
+            
+            <p className="text-sm text-gray-500">
+              The people who join first will shape what gets built.
+            </p>
           </div>
         </section>
 
         {/* Section 4: Social Proof */}
         <section id="community" className="py-32 px-6 max-w-7xl mx-auto">
           <div className="text-center mb-20">
+            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">Community</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
               You're not the only one.
             </h2>
             <p className="text-lg text-gray-600">
-              Hear from our early community members.
+              Others felt it too. Here's what they said.
             </p>
           </div>
 
@@ -213,11 +205,13 @@ export default function App() {
         {/* Section 5: Waitlist CTA */}
         <section id="waitlist" className="py-32 px-6">
           <div className="max-w-5xl mx-auto bg-gray-50 rounded-[40px] p-12 md:p-24 text-center border border-gray-100">
-            <h2 className="text-[48px] md:text-[64px] font-medium leading-[1.05] tracking-tight mb-6">
-              Be first.
+            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-6">Be First to Know</div>
+            <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.05] tracking-tight mb-6">
+              The reveal is coming.<br />
+              You should be there when it happens.
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-              We're building Verse in public — with our waitlist. Your frustrations become our features. Sign up and we'll send you one question a week about what matters most to you.
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+              Join the list and we'll send you one clue a week about what we're building. When we're ready to show the world, you'll see it first.
             </p>
 
             <form action="https://formspree.io/f/placeholder" method="POST" className="max-w-md mx-auto flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
@@ -232,7 +226,7 @@ export default function App() {
                 type="submit"
                 className="w-full bg-black text-white rounded-full px-8 py-5 text-base font-medium transition-transform hover:scale-[1.02]"
               >
-                Reserve My Spot
+                I Want to Be First
               </button>
             </form>
 
@@ -248,6 +242,11 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-[#111] text-white pt-24 pb-12 px-6">
         <div className="max-w-7xl mx-auto">
+          <div className="mb-24 text-center md:text-left">
+            <h3 className="text-2xl md:text-4xl font-medium tracking-tight mb-4">
+              Something is coming that was built for exactly how you read.
+            </h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
             <div className="col-span-1 md:col-span-2">
               <div className="text-2xl font-semibold tracking-tight flex items-center gap-2 mb-4">
@@ -257,7 +256,7 @@ export default function App() {
                 VERSE
               </div>
               <p className="text-gray-400 max-w-xs">
-                The Bible app built for people who actually write notes.
+                Built for the way you actually study. Revealed soon.
               </p>
             </div>
             
