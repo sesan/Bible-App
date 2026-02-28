@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight, Check } from 'lucide-react';
+import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight, Check, Pencil, Feather } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function App() {
@@ -53,8 +53,8 @@ export default function App() {
               VERSE
             </div>
             <div className="hidden md:flex items-center gap-2 bg-gray-50 rounded-full px-2 py-1">
-              <a href="#problem" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Problem</a>
-              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">Something's Coming</a>
+              <a href="#problem" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Journey</a>
+              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">What We're Building</a>
               <a href="#community" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">Community</a>
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function App() {
               href="#waitlist"
               className="bg-black text-white rounded-full px-6 py-2.5 text-sm font-medium transition-transform hover:scale-105"
             >
-              Get Early Access
+              Join the Waitlist
             </a>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function App() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed"
               >
-                So that years from now, you can look back and see exactly how far God has brought you.
+                Because the way you read your Bible is personal. Your app should be too.
               </motion.p>
               
               <motion.div 
@@ -115,7 +115,7 @@ export default function App() {
                   href="#waitlist"
                   className="w-full sm:w-auto bg-black text-white rounded-full px-8 py-4 text-base font-medium flex items-center justify-center gap-2 transition-transform hover:scale-105"
                 >
-                  I Want to Know More <ArrowRight size={18} />
+                  Join the Waitlist <ArrowRight size={18} />
                 </a>
               </motion.div>
             </div>
@@ -172,7 +172,7 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* Section 2: Pain Points (Split Layout) */}
+        {/* Section 2: The Journey (Split Layout) */}
         <section id="problem" className="py-32 px-6 max-w-7xl mx-auto border-t border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <motion.div 
@@ -183,23 +183,24 @@ export default function App() {
               className="lg:col-span-5 relative"
             >
               <div className="sticky top-32">
-                <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">The Problem</div>
+                <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">The Journey</div>
                 <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
-                  Sound familiar?
+                  Faith is deeply personal.<br />
+                  Your Bible app should reflect that.
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed max-w-sm">
-                  If you've ever opened a Bible app and felt something was missing, you were right.
+                  You deserve more than a plan someone else designed. Here is what a truly personal Bible experience looks like.
                 </p>
               </div>
             </motion.div>
             
             <div className="lg:col-span-7 flex flex-col gap-6">
               {[
-                { icon: Search, title: "Your notes are buried forever", desc: "You wrote something powerful 6 months ago. It's gone, buried inside a completed plan with no way to ever search for it." },
-                { icon: PenTool, title: "You can only highlight the whole verse", desc: "One word changed everything for you. But the app marks the entire verse. That moment gets lost every time." },
-                { icon: BookOpen, title: "Your journal lives in a different app", desc: "Every time you want to reflect, you leave and open Notes. Your study is split across three tools." },
-                { icon: Compass, title: "No one asked what you actually believe yet", desc: "You have real questions like \"Who is Jesus?\" But the app gives you the same plan catalog as everyone else. You are not everyone else." },
-                { icon: PenTool, title: "It doesn't feel like your Bible", desc: "On a physical Bible you write in the margins, underline words, make it yours. Digital Bibles feel like someone else's copy." }
+                { icon: Search, title: "Your reflections, always with you", desc: "Every insight you write deserves to be findable, not forgotten. Your notes are part of your story with God." },
+                { icon: Pencil, title: "Mark exactly what moves you", desc: "Sometimes one word in a verse carries everything. Your Bible app should let you honour that moment precisely." },
+                { icon: BookOpen, title: "Reflect without losing the thread", desc: "Your thoughts are richest right in the moment. Journaling inside your Bible keeps your reflection connected to what sparked it." },
+                { icon: Compass, title: "Start from where you actually are", desc: "Whether you are exploring faith for the first time or going deeper, your reading path should begin with your real questions, not someone else's plan." },
+                { icon: Feather, title: "Make it feel like yours", desc: "The most powerful Bibles in the world are full of personal marks and memories. Your digital Bible should feel the same way." }
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
