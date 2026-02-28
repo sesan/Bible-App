@@ -75,29 +75,49 @@ export default function App() {
         <section className="pt-40 pb-20 px-6 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="flex flex-col items-start">
-              <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-3 py-1 mb-8">
+              <motion.div 
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-full px-3 py-1 mb-8"
+              >
                 <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
                 <span className="text-xs font-semibold tracking-wide uppercase text-gray-600">Now in early access</span>
-              </div>
+              </motion.div>
               
-              <h1 className="text-[40px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-balance mb-8">
+              <motion.h1 
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                className="text-[40px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-balance mb-8"
+              >
                 Your faith journey.<br />
                 Every note. Every thought.<br />
                 All in one place.
-              </h1>
+              </motion.h1>
               
-              <p className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed">
+              <motion.p 
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed"
+              >
                 So that years from now, you can look back and see exactly how far God has brought you.
-              </p>
+              </motion.p>
               
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <motion.div 
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+              >
                 <a
                   href="#waitlist"
                   className="w-full sm:w-auto bg-black text-white rounded-full px-8 py-4 text-base font-medium flex items-center justify-center gap-2 transition-transform hover:scale-105"
                 >
                   I Want to Know More <ArrowRight size={18} />
                 </a>
-              </div>
+              </motion.div>
             </div>
             
             <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end">
@@ -130,7 +150,13 @@ export default function App() {
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-20 pt-10 border-t border-gray-200 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="mt-20 pt-10 border-t border-gray-200 grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             <div>
               <div className="text-sm text-gray-500 mb-1">Waitlist Size</div>
               <div className="text-3xl font-medium tracking-tight">0 People</div>
@@ -143,13 +169,19 @@ export default function App() {
               <div className="text-sm text-gray-500 mb-1">Commitment</div>
               <div className="text-3xl font-medium tracking-tight">No Spam</div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Section 2: Pain Points (Split Layout) */}
         <section id="problem" className="py-32 px-6 max-w-7xl mx-auto border-t border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-5 relative">
+            <motion.div 
+              initial={{ opacity: 0, x: -20, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-5 relative"
+            >
               <div className="sticky top-32">
                 <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">The Problem</div>
                 <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
@@ -159,7 +191,7 @@ export default function App() {
                   If you've ever opened a Bible app and felt something was missing, you were right.
                 </p>
               </div>
-            </div>
+            </motion.div>
             
             <div className="lg:col-span-7 flex flex-col gap-6">
               {[
@@ -169,7 +201,14 @@ export default function App() {
                 { icon: Compass, title: "No one asked what you actually believe yet", desc: "You have real questions like \"Who is Jesus?\" But the app gives you the same plan catalog as everyone else. You are not everyone else." },
                 { icon: PenTool, title: "It doesn't feel like your Bible", desc: "On a physical Bible you write in the margins, underline words, make it yours. Digital Bibles feel like someone else's copy." }
               ].map((item, i) => (
-                <div key={i} className="bg-gray-50 rounded-[24px] p-8 md:p-10 flex gap-6 items-start border border-gray-100 transition-colors hover:bg-gray-100">
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                  className="bg-gray-50 rounded-[24px] p-8 md:p-10 flex gap-6 items-start border border-gray-100 transition-colors hover:bg-gray-100"
+                >
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
                     <item.icon size={20} className="text-black" />
                   </div>
@@ -177,7 +216,7 @@ export default function App() {
                     <h3 className="text-xl font-medium mb-3">{item.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -185,7 +224,13 @@ export default function App() {
 
         {/* Section 3: Something Is Coming (Dark Mode) */}
         <section id="solution" className="py-32 bg-[#111] text-white text-center">
-          <div className="max-w-4xl mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, filter: "blur(10px)", y: 30 }}
+            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-4xl mx-auto px-6"
+          >
             <div className="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-8">Something Is Coming</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
               We've seen every problem.<br className="hidden md:block" />
@@ -208,12 +253,18 @@ export default function App() {
             <p className="text-sm text-gray-500">
               The people who join first will shape what gets built.
             </p>
-          </div>
+          </motion.div>
         </section>
 
         {/* Section 4: Social Proof */}
         <section id="community" className="py-32 px-6 max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-20"
+          >
             <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">Community</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
               You're not the only one.
@@ -221,7 +272,7 @@ export default function App() {
             <p className="text-lg text-gray-600">
               Others felt it too. Here's what they said.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -229,7 +280,14 @@ export default function App() {
               "I've been using GoodNotes alongside my Bible app just to write in the margins. It's embarrassing that no app has fixed this.",
               "I became a Christian last year. Every plan felt like it was made for someone who already knew everything. I just had questions."
             ].map((quote, i) => (
-              <div key={i} className="bg-gray-50 rounded-[24px] p-10 border border-gray-100 flex flex-col">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+                className="bg-gray-50 rounded-[24px] p-10 border border-gray-100 flex flex-col"
+              >
                 <div className="text-6xl font-serif text-gray-300 leading-none mb-6">"</div>
                 <p className="text-lg text-gray-800 leading-relaxed mb-8 flex-grow">
                   {quote}
@@ -238,14 +296,20 @@ export default function App() {
                   <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
                   <div className="text-sm font-medium text-gray-600">Early Member</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* Section 5: Waitlist CTA */}
         <section id="waitlist" className="py-32 px-6">
-          <div className="max-w-5xl mx-auto bg-gray-50 rounded-[40px] p-12 md:p-24 text-center border border-gray-100">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)", y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)", y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-5xl mx-auto bg-gray-50 rounded-[40px] p-12 md:p-24 text-center border border-gray-100"
+          >
             <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-6">Be First to Know</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.05] tracking-tight mb-6">
               The reveal is coming.<br />
@@ -308,13 +372,19 @@ export default function App() {
               <span className="hidden md:block w-1 h-1 bg-gray-300 rounded-full"></span>
               <span>Unsubscribe anytime</span>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
 
       {/* Footer */}
       <footer className="bg-[#111] text-white pt-24 pb-12 px-6">
-        <div className="max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-7xl mx-auto"
+        >
           <div className="mb-24 text-center md:text-left">
             <h3 className="text-2xl md:text-4xl font-medium tracking-tight mb-4">
               Something is coming that was built for exactly how you read.
@@ -364,7 +434,7 @@ export default function App() {
           <div className="mt-12 text-xs text-gray-600 max-w-4xl leading-relaxed">
             Verse is a technology company, not a church or religious institution. Information provided on this website is for educational purposes only. The app is currently in early access and features described may change prior to full release. By joining the waitlist, you agree to receive occasional updates about our progress.
           </div>
-        </div>
+        </motion.div>
       </footer>
     </div>
   );
