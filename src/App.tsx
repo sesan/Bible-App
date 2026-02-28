@@ -78,14 +78,13 @@ export default function App() {
               </div>
             </div>
             
-            <div className="relative h-[400px] lg:h-[600px] bg-gray-50 rounded-[32px] overflow-hidden flex items-center justify-center border border-gray-100">
-              {/* Abstract minimalist illustration replacing the vintage engraving */}
-              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-              <div className="relative z-10 w-64 h-64 border border-gray-200 rounded-full flex items-center justify-center bg-white shadow-sm">
-                <div className="w-48 h-48 border border-gray-100 rounded-full flex items-center justify-center">
-                  <BookOpen size={48} strokeWidth={1} className="text-gray-400" />
-                </div>
-              </div>
+            <div className="relative h-[400px] lg:h-[600px] bg-gray-50 rounded-[32px] overflow-hidden border border-gray-100">
+              <img 
+                src="https://picsum.photos/seed/cathedral/800/1200?grayscale" 
+                alt="Premium architecture" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
 
