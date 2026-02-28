@@ -1,9 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight } from 'lucide-react';
+import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight, Check } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Brevo requires no-cors for direct AJAX submissions
+      });
+      // no-cors means we can't read the response, so we assume success if no network error
+      setFormStatus('success');
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setFormStatus('error');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,13 +81,13 @@ export default function App() {
               </div>
               
               <h1 className="text-[40px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-balance mb-8">
-                You've been using<br />
-                the wrong Bible app<br />
-                your whole life.
+                Your faith journey.<br />
+                Every note. Every thought.<br />
+                All in one place.
               </h1>
               
               <p className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed">
-                You just didn't know there was a better way. Until now.
+                So that years from now, you can look back and see exactly how far God has brought you.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -78,13 +100,32 @@ export default function App() {
               </div>
             </div>
             
-            <div className="relative h-[400px] lg:h-[600px] bg-gray-50 rounded-[32px] overflow-hidden border border-gray-100">
-              <img 
-                src="https://picsum.photos/seed/cathedral/800/1200?grayscale" 
-                alt="Premium architecture" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end">
+              {/* Background decorative glow */}
+              <div className="absolute top-1/2 left-1/2 lg:left-[60%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-gray-100 rounded-full blur-3xl -z-10 opacity-70"></div>
+              
+              {/* iPhone Mockup */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative w-[280px] h-[580px] md:w-[320px] md:h-[650px] bg-black rounded-[48px] shadow-2xl border-[10px] border-black overflow-hidden ring-1 ring-gray-200/50"
+              >
+                {/* Dynamic Island / Notch */}
+                <div className="absolute top-2 inset-x-0 h-7 bg-black rounded-full w-[100px] mx-auto z-20"></div>
+                
+                {/* Screen Content */}
+                <img 
+                  src="/hero-mockup.png" 
+                  alt="Verse App Interface" 
+                  className="w-full h-full object-cover bg-white"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    // Fallback if the user hasn't uploaded the image yet
+                    e.currentTarget.src = "https://picsum.photos/seed/bibleapp/800/1600?grayscale";
+                  }}
+                />
+              </motion.div>
             </div>
           </div>
 
@@ -214,21 +255,53 @@ export default function App() {
               Join the list and we'll send you one clue a week about what we're building. When we're ready to show the world, you'll see it first.
             </p>
 
-            <form action="https://formspree.io/f/placeholder" method="POST" className="max-w-md mx-auto flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                name="email"
-                placeholder="Enter your email address" 
-                required
-                className="w-full bg-white border border-gray-200 rounded-full px-8 py-5 text-base placeholder:text-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all"
-              />
-              <button 
-                type="submit"
-                className="w-full bg-black text-white rounded-full px-8 py-5 text-base font-medium transition-transform hover:scale-[1.02]"
+            {formStatus === 'success' ? (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="max-w-xl mx-auto bg-[#e7faf0] border border-[#13ce66] rounded-full px-8 py-6 flex items-center gap-6 text-left"
               >
-                I Want to Be First
-              </button>
-            </form>
+                <div className="w-12 h-12 shrink-0 bg-[#13ce66]/20 rounded-full flex items-center justify-center">
+                  <Check size={24} className="text-[#085229]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium text-[#085229] mb-1">You have been subscribed</h3>
+                  <p className="text-[#085229]/80 text-base">
+                    Thank you for joining the waitlist. We'll be in touch soon.
+                  </p>
+                </div>
+              </motion.div>
+            ) : (
+              <form 
+                action="https://e637ebe2.sibforms.com/serve/MUIFAC3iFqxXqjKrfXnMp4o2fVuxfMwnHcvh3YYqcWGv8LBIFreVgGYtekalYcfMHgSOH-2gV-5cWXmYr-hzWO9goSPjm2l3Xe7GUv9pw59INDG8hIYFuBZc6d_1_mRVShgvYMBSkggqastsQL5ENYke7vs1k-HbbUbKvEzNmsWUmce9UIYdPGVG9g6vbPLS88lL706C_yzg0roz9w==" 
+                method="POST" 
+                onSubmit={handleSubscribe}
+                className="max-w-md mx-auto flex flex-col gap-4"
+              >
+                <input 
+                  type="email" 
+                  name="EMAIL"
+                  placeholder="Enter your email address" 
+                  required
+                  disabled={formStatus === 'loading'}
+                  className="w-full bg-white border border-gray-200 rounded-full px-8 py-5 text-base placeholder:text-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all disabled:opacity-50"
+                />
+                {/* Brevo hidden anti-spam and locale fields */}
+                <input type="text" name="email_address_check" defaultValue="" className="hidden" />
+                <input type="hidden" name="locale" defaultValue="en" />
+                
+                <button 
+                  type="submit"
+                  disabled={formStatus === 'loading'}
+                  className="w-full bg-black text-white rounded-full px-8 py-5 text-base font-medium transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 flex justify-center items-center"
+                >
+                  {formStatus === 'loading' ? 'Subscribing...' : 'I Want to Be First'}
+                </button>
+                {formStatus === 'error' && (
+                  <p className="text-red-500 text-sm mt-2">Something went wrong. Please try again.</p>
+                )}
+              </form>
+            )}
 
             <div className="mt-8 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
               <span>We'll never sell your data</span>
