@@ -5,6 +5,19 @@ import { motion } from 'motion/react';
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Fetch waitlist count
+    fetch('/api/waitlist-count')
+      .then(res => res.json())
+      .then(data => {
+        if (typeof data.count === 'number') {
+          setWaitlistCount(data.count);
+        }
+      })
+      .catch(err => console.error('Failed to fetch count:', err));
+  }, []);
 
   const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -159,7 +172,19 @@ export default function App() {
           >
             <div>
               <div className="text-sm text-gray-500 mb-1">Waitlist Size</div>
-              <div className="text-3xl font-medium tracking-tight">0 People</div>
+              <div className="text-3xl font-medium tracking-tight">
+                {waitlistCount !== null ? (
+                  <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {waitlistCount.toLocaleString()} People
+                  </motion.span>
+                ) : (
+                  <span className="opacity-50">Loading...</span>
+                )}
+              </div>
             </div>
             <div>
               <div className="text-sm text-gray-500 mb-1">Cost to Join</div>
