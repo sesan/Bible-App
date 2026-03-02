@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight, Check, Pencil, Feather } from 'lucide-react';
+import { Instagram, Twitter, Video, Search, TextSelect, BookOpen, Compass, PenTool, Brain, Mic, Map, ArrowRight, Check, Pencil, Feather, Link, Palette, BarChart, Layers, HelpCircle, Fingerprint } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export default function App() {
@@ -66,9 +66,9 @@ export default function App() {
               VERSE
             </div>
             <div className="hidden md:flex items-center gap-2 bg-gray-50 rounded-full px-2 py-1">
-              <a href="#problem" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Journey</a>
-              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">What We're Building</a>
-              <a href="#community" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">Community</a>
+              <a href="#problem" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">The Problem</a>
+              <a href="#solution" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">What It Does</a>
+              <a href="#community" className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black hover:bg-white rounded-full transition-all">In Good Company</a>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -115,7 +115,8 @@ export default function App() {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="text-lg md:text-xl text-gray-600 max-w-md mb-10 leading-relaxed"
               >
-                Because the way you read your Bible is personal. Your app should be too.
+                Verse is a Bible app where nothing you write<br className="hidden md:block" />
+                ever gets lost and everything feels made for you.
               </motion.p>
               
               <motion.div 
@@ -197,7 +198,7 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* Section 2: The Journey (Split Layout) */}
+        {/* Section 2: The Problem (Split Layout) */}
         <section id="problem" className="py-32 px-6 max-w-7xl mx-auto border-t border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <motion.div 
@@ -208,24 +209,24 @@ export default function App() {
               className="lg:col-span-5 relative"
             >
               <div className="sticky top-32">
-                <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">The Journey</div>
+                <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">The Problem</div>
                 <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
-                  Faith is deeply personal.<br />
-                  Your Bible app should reflect that.
+                  Does any of this<br />
+                  sound like you?
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed max-w-sm">
-                  You deserve more than a plan someone else designed. Here is what a truly personal Bible experience looks like.
+                  A lot of people who love the Bible feel this way. You are not alone.
                 </p>
               </div>
             </motion.div>
             
             <div className="lg:col-span-7 flex flex-col gap-6">
               {[
-                { icon: Search, title: "Your reflections, always with you", desc: "Every insight you write deserves to be findable, not forgotten. Your notes are part of your story with God." },
-                { icon: Pencil, title: "Mark exactly what moves you", desc: "Sometimes one word in a verse carries everything. Your Bible app should let you honour that moment precisely." },
-                { icon: BookOpen, title: "Reflect without losing the thread", desc: "Your thoughts are richest right in the moment. Journaling inside your Bible keeps your reflection connected to what sparked it." },
-                { icon: Compass, title: "Start from where you actually are", desc: "Whether you are exploring faith for the first time or going deeper, your reading path should begin with your real questions, not someone else's plan." },
-                { icon: Feather, title: "Make it feel like yours", desc: "The most powerful Bibles in the world are full of personal marks and memories. Your digital Bible should feel the same way." }
+                { icon: Search, title: "You wrote something and now you can't find it", desc: "You had a great thought while reading. You saved it. But now it's buried and you have no idea where it went." },
+                { icon: Pencil, title: "You want to mark one word, not the whole verse", desc: "One small word meant a lot to you. But the app only lets you highlight everything around it." },
+                { icon: BookOpen, title: "You have to use three apps just to study", desc: "You read in one app. Write notes in another. Journal somewhere else. It is a lot." },
+                { icon: Compass, title: "The app doesn't know anything about you", desc: "Maybe you are new to faith. Maybe you have big questions. But the app gives everyone the same thing." },
+                { icon: Feather, title: "It doesn't feel like your Bible", desc: "When you write in a real Bible it becomes yours. Your digital Bible looks the same as day one." }
               ].map((item, i) => (
                 <motion.div 
                   key={i} 
@@ -248,41 +249,69 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section 3: Something Is Coming (Dark Mode) */}
-        <section id="solution" className="py-32 bg-[#111] text-white text-center">
-          <motion.div 
-            initial={{ opacity: 0, filter: "blur(10px)", y: 30 }}
-            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="max-w-4xl mx-auto px-6"
-          >
-            <div className="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-8">Something Is Coming</div>
-            <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
-              We've seen every problem.<br className="hidden md:block" />
-              We've been sitting with it for a long time.
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-400 mb-12">
-              And we think we've finally built the answer.
-            </p>
-            
-            <div className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-              <p>
-                We're not ready to show you yet. But if you've nodded at anything on this page, what we're building was made for you. Every frustration you just read has a solution we've been quietly building. We'll reveal it first to the people on this list.
+        {/* Section 3: What It Does (Dark Mode) */}
+        <section id="solution" className="py-32 bg-[#111] text-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div 
+              initial={{ opacity: 0, filter: "blur(10px)", y: 30 }}
+              whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="mb-20"
+            >
+              <div className="text-xs font-semibold tracking-wide uppercase text-gray-500 mb-8">What It Does</div>
+              <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
+                Meet Verse.<br />
+                A Bible app built around you.
+              </h2>
+              <p className="text-xl md:text-2xl text-gray-400 max-w-2xl">
+                Here is exactly what Verse does. Simple, clear, no jargon.
               </p>
+            </motion.div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {[
+                { icon: Link, title: "Mark the exact word that moved you. Come back to it later.", desc: "Pick any word or phrase in a verse, not just the whole verse. Write a note right there in that moment. Tap it again months later and everything you wrote will be waiting for you exactly where you left it." },
+                { icon: Palette, title: "Know what your highlights mean without thinking twice", desc: "We give you a simple colour guide built right into the app. Yellow for a promise. Blue for a command. Green for hope. Red for something personal. You do not need to Google it. And if you want to change the meaning of a colour, you can. Your highlights. Your rules." },
+                { icon: Mic, title: "Keep your journal right next to your Bible", desc: "Write or speak your thoughts inside the app, right next to the verse that sparked them. No more switching between tools to capture what you felt." },
+                { icon: Map, title: "A reading path built around your real questions", desc: "Answer three simple questions when you sign up. Verse builds a personal reading path just for you. Not a generic plan. Something made for where you are right now." },
+                { icon: Brain, title: "Everything you have ever written, always findable", desc: "Every note, highlight and reflection lives in one place. Search by a word, a verse or a feeling. Nothing gets lost. Everything is yours. Forever." }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
+                  className="bg-white/5 rounded-[24px] p-8 border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 mb-6">
+                    <item.icon size={20} className="text-white" />
+                  </div>
+                  <h3 className="text-xl font-medium mb-4">{item.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">{item.desc}</p>
+                </motion.div>
+              ))}
             </div>
 
-            <a href="#waitlist" className="inline-flex bg-white text-black rounded-full px-10 py-5 text-lg font-medium transition-transform hover:scale-105 mb-6">
-              Put Me on the List
-            </a>
-            
-            <p className="text-sm text-gray-500">
-              The people who join first will shape what gets built.
-            </p>
-          </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-center bg-white/5 rounded-[32px] p-12 border border-white/10"
+            >
+              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                We are still building. But this is the heart of it. The people on this list will see everything first.
+              </p>
+              <a href="#waitlist" className="inline-flex bg-white text-black rounded-full px-10 py-5 text-lg font-medium transition-transform hover:scale-105">
+                I Want to See It First
+              </a>
+            </motion.div>
+          </div>
         </section>
 
-        {/* Section 4: Social Proof */}
+        {/* Section 4: In Good Company */}
         <section id="community" className="py-32 px-6 max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -291,21 +320,22 @@ export default function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center mb-20"
           >
-            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">Community</div>
+            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-4">In Good Company</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.1] tracking-tight mb-6">
-              You're not the only one.
+              Other people feel this too.
             </h2>
             <p className="text-lg text-gray-600">
-              Others felt it too. Here's what they said.
+              Here is what the research shows.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              "I have 4 years of notes trapped in YouVersion plans. I'd switch apps tomorrow if someone solved this.",
-              "I've been using GoodNotes alongside my Bible app just to write in the margins. It's embarrassing that no app has fixed this.",
-              "I became a Christian last year. Every plan felt like it was made for someone who already knew everything. I just had questions."
-            ].map((quote, i) => (
+              { icon: BarChart, quote: "Over 3.4 billion notes have been written inside Bible apps around the world. Most people can never find them again.", source: "YouVersion 2024 Annual Report" },
+              { icon: Layers, quote: "Many Bible readers use two or three separate apps every time they sit down to study. No single app has brought it all together. Yet.", source: "Independent Bible software research" },
+              { icon: HelpCircle, quote: "People new to faith often feel like Bible apps were not built for them. They have questions. Most apps assume you already have all the answers.", source: "Lausanne Movement Digital Scripture Research" },
+              { icon: Fingerprint, quote: "Generic reading plans have a 90% drop-off rate. People stop reading when the content feels disconnected from their real life.", source: "Religious Habits Study 2024" }
+            ].map((item, i) => (
               <motion.div 
                 key={i} 
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -314,13 +344,14 @@ export default function App() {
                 transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
                 className="bg-gray-50 rounded-[24px] p-10 border border-gray-100 flex flex-col"
               >
-                <div className="text-6xl font-serif text-gray-300 leading-none mb-6">"</div>
+                <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mb-6">
+                  <item.icon size={20} className="text-gray-600" />
+                </div>
                 <p className="text-lg text-gray-800 leading-relaxed mb-8 flex-grow">
-                  {quote}
+                  {item.quote}
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                  <div className="text-sm font-medium text-gray-600">Early Member</div>
+                  <div className="text-sm font-medium text-gray-500">{item.source}</div>
                 </div>
               </motion.div>
             ))}
@@ -336,13 +367,13 @@ export default function App() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-5xl mx-auto bg-gray-50 rounded-[40px] p-12 md:p-24 text-center border border-gray-100"
           >
-            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-6">Be First to Know</div>
+            <div className="text-xs font-semibold tracking-wide uppercase text-gray-400 mb-6">Be the First to Know</div>
             <h2 className="text-[40px] md:text-[56px] font-medium leading-[1.05] tracking-tight mb-6">
-              The reveal is coming.<br />
-              You should be there when it happens.
+              Want to see it before<br />
+              anyone else?
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-              Join the list and we'll send you one clue a week about what we're building. When we're ready to show the world, you'll see it first.
+              Join our list and we will send you one small update every week. When we launch, you will be first to know.
             </p>
 
             {formStatus === 'success' ? (
@@ -385,7 +416,7 @@ export default function App() {
                   disabled={formStatus === 'loading'}
                   className="w-full bg-black text-white rounded-full px-8 py-5 text-base font-medium transition-transform hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 flex justify-center items-center"
                 >
-                  {formStatus === 'loading' ? 'Subscribing...' : 'I Want to Be First'}
+                  {formStatus === 'loading' ? 'Subscribing...' : 'Yes, I Want to Be First'}
                 </button>
                 {formStatus === 'error' && (
                   <p className="text-red-500 text-sm mt-2">Something went wrong. Please try again.</p>
@@ -394,7 +425,7 @@ export default function App() {
             )}
 
             <div className="mt-8 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
-              <span>We'll never sell your data</span>
+              <span>We will never sell your email</span>
               <span className="hidden md:block w-1 h-1 bg-gray-300 rounded-full"></span>
               <span>Unsubscribe anytime</span>
             </div>
@@ -413,7 +444,8 @@ export default function App() {
         >
           <div className="mb-24 text-center md:text-left">
             <h3 className="text-2xl md:text-4xl font-medium tracking-tight mb-4">
-              Something is coming that was built for exactly how you read.
+              Your faith is personal.<br />
+              Your Bible app should be too.
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
@@ -425,7 +457,7 @@ export default function App() {
                 VERSE
               </div>
               <p className="text-gray-400 max-w-xs">
-                Built for the way you actually study. Revealed soon.
+                A Bible app built around you.
               </p>
             </div>
             
